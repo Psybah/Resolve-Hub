@@ -1,0 +1,138 @@
+.processes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2em;
+}
+.processes-header h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0 0 0.2em 0;
+}
+.processes-header p {
+  font-size: 1em;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+}
+.processes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2em;
+}
+.process-card {
+  background: #23283a;
+  border-radius: 0.7em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1em 0.8em 0.8em 0.8em;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+.process-card:hover {
+  box-shadow: 0 4px 16px rgba(59,130,246,0.10);
+}
+.process-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7em;
+}
+.process-id {
+  font-weight: 700;
+  font-size: 1em;
+  color: #fff;
+}
+.process-title {
+  font-size: 0.92em;
+  color: #bfc6d1;
+  margin-top: 0.15em;
+}
+.process-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e5e7eb;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.process-card-body {
+  margin-bottom: 0.7em;
+}
+.process-assignee {
+  font-size: 0.95em;
+  color: #bfc6d1;
+  margin-bottom: 0;
+}
+.process-assignee span {
+  display: block;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 0.1em;
+  font-size: 0.97em;
+}
+.process-status {
+  font-size: 0.95em;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.4em;
+}
+.process-time {
+  font-size: 0.92em;
+  color: #bfc6d1;
+}
+.process-card-menu {
+  position: absolute;
+  right: 0.8em;
+  bottom: 0.8em;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.process-row-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+.process-action-menu {
+  position: absolute;
+  right: 0;
+  bottom: 2.2em;
+  min-width: 140px;
+  background: #181f2a;
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 0.5em;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 100;
+  display: none;
+}
+.process-action-menu-item {
+  padding: 0.7em 1.2em;
+  font-size: 0.95em;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.process-action-menu-item:hover {
+  background: rgba(59,130,246,0.08);
+  color: var(--primary-light);
+}
+.process-action-menu-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+} 

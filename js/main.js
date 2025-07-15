@@ -31,9 +31,30 @@ document.addEventListener('DOMContentLoaded', () => {
       handleAction(action, rowId);
       document.querySelectorAll('.action-menu').forEach(menu => menu.style.display = 'none');
     }
+    // Process card action menu
+    if (e.target.closest('.process-action-menu-trigger')) {
+      e.stopPropagation();
+      const trigger = e.target.closest('.process-action-menu-trigger');
+      const processId = trigger.getAttribute('data-processid');
+      document.querySelectorAll('.process-action-menu').forEach(menu => menu.style.display = 'none');
+      const menu = document.getElementById('process-action-menu-' + processId);
+      if (menu) menu.style.display = 'block';
+      document.addEventListener('click', closeProcessMenus, { once: true });
+    }
+    if (e.target.classList.contains('process-action-menu-item')) {
+      e.stopPropagation();
+      const action = e.target.getAttribute('data-action');
+      const processId = e.target.getAttribute('data-processid');
+      alert(`Action: ${action}\nProcess ID: ${processId}`);
+      document.querySelectorAll('.process-action-menu').forEach(menu => menu.style.display = 'none');
+    }
   });
 });
 
 function handleAction(action, rowId) {
   alert(`Action: ${action}\nComplaint ID: ${rowId}`);
+}
+
+function closeProcessMenus() {
+  document.querySelectorAll('.process-action-menu').forEach(menu => menu.style.display = 'none');
 } 

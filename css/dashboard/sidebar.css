@@ -137,3 +137,8 @@
   pointer-events: none;
   opacity: 1;
 } 
+
+.sidebar-logo-full { display: inline-block; }
+.sidebar-logo-tab { display: none; }
+.dashboard-sidebar.collapsed .sidebar-logo-full { display: none; }
+.dashboard-sidebar.collapsed .sidebar-logo-tab { display: inline-block; } 

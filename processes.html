@@ -10,46 +10,51 @@
   <link rel="stylesheet" href="css/dashboard/layout.css"/>
   <link rel="stylesheet" href="css/dashboard/sidebar.css"/>
   <link rel="stylesheet" href="css/dashboard/header.css"/>
-  <link rel="stylesheet" href="css/dashboard/metrics.css"/>
-  <link rel="stylesheet" href="css/dashboard/table.css"/>
-  <link rel="icon" href="assets/logo.png"/>
+  <link rel="stylesheet" href="css/processes/cards.css"/>
+  <link rel="icon" href="assets/logo-tab.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="app"></div>
-  
   <!-- Shared Templates -->
   <script src="js/templates/shared/sidebar.js"></script>
   <script src="js/templates/shared/header.js"></script>
-  
-  <!-- Dashboard Templates -->
-  <script src="js/templates/dashboard/metrics.js"></script>
-  <script src="js/templates/dashboard/table.js"></script>
-  
-  <!-- Main Processes Script -->
+  <!-- Processes Card Template -->
+  <script src="js/templates/processes/card.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const app = document.getElementById('app');
-      app.innerHTML = `
+    const demoProcesses = [
+      { id: 'CM9801', title: 'Delayed delivery of online order', assignee: 'Kemi Adeleke', status: 'in-progress', time: '32h' },
+      { id: 'CM9802', title: 'Delayed delivery of online order', assignee: 'Big Wiz', status: 'approved', time: '32h' },
+      { id: 'CM9803', title: 'Delayed delivery of online order', assignee: 'Oladolami Asake', status: 'rejected', time: '1w' },
+      { id: 'CM9804', title: 'Delayed delivery of online order', assignee: 'Osore Daniel', status: 'complete', time: '2h' },
+      { id: 'CM9805', title: 'Delayed delivery of online order', assignee: 'K1 De Ultimate', status: 'pending', time: '32h' },
+      { id: 'CM9806', title: 'Delayed delivery of online order', assignee: 'Sunny Ade', status: 'complete', time: '30min' },
+      { id: 'CM9807', title: 'Delayed delivery of online order', assignee: 'Pelumi Akin', status: 'pending', time: '3d' },
+      { id: 'CM9808', title: 'Delayed delivery of online order', assignee: 'Mufutau Umar', status: 'in-progress', time: 'Just now' }
+    ];
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('app').innerHTML = `
         <div class="dashboard-layout">
           ${renderSidebar('processes')}
           <div class="dashboard-main">
-            ${renderDashboardHeader()}
+            ${typeof renderDashboardHeader === 'function' ? renderDashboardHeader() : ''}
             <div class="dashboard-content">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5em;">
+              <div class="processes-header">
                 <div>
-                  <h1 style="font-size: 2em; font-weight: 500; margin: 0 0 0.25em 0;">Process Instances</h1>
-                  <p style="font-size: 1em; color: rgba(255,255,255,0.7); margin: 0;">Monitor and manage workflow processes</p>
+                  <h1>Process Instances</h1>
+                  <p>Track complaint resolution processes and workflows</p>
                 </div>
-                <button class="btn-gradient" style="font-size: 0.9em; padding: 0.6em 1.5em;">Start New Process</button>
+                <button class="btn-gradient" style="font-size: 1em; padding: 0.7em 2em;">Export Report</button>
               </div>
-              ${renderMetrics()}
-              ${renderComplaintsTable()}
+              <div class="processes-grid">
+                ${demoProcesses.map(renderProcessCard).join('')}
+              </div>
             </div>
           </div>
         </div>
       `;
     });
   </script>
+  <script src="js/main.js"></script>
 </body>
 </html> 

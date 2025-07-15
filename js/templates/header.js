@@ -3,9 +3,9 @@ function renderHeader() {
     <header class="main-header">
       <img src="assets/logo.png" alt="ResolveHub Logo" class="logo"/>
       <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Tasks</a>
-        <a href="#">Process Instances</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="processes.html">Process Instances</a>
         <a href="#">Reports</a>
       </nav>
       <div class="header-actions">

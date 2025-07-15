@@ -1,6 +1,18 @@
-function renderComplaintsTable({ data, page = 1, pageSize = 10, total = 0, onPage = null } = {}) {
-  const complaints = data || [];
-  const totalPages = Math.ceil(total / pageSize);
+function renderComplaintsTable({ data, page = 1, pageSize = 10, total = 0 } = {}) {
+  // If no data is passed, use default dashboard demo data (first 10 rows)
+  const complaints = data || [
+    { id: 'CM9801', customer: 'Adebayo Kayode', title: 'Delayed delivery of online order', assignee: 'Kemi Adeleke', date: 'Just now', status: 'in-progress' },
+    { id: 'CM9802', customer: 'Leslie Young', title: 'Incorrect billing charges', assignee: 'Ibrahim Musa', date: 'A minute ago', status: 'complete' },
+    { id: 'CM9803', customer: 'Mufutau Umar', title: 'Poor customer service', assignee: 'Grace Okonkwo', date: '1 hour ago', status: 'pending' },
+    { id: 'CM9804', customer: 'Ahmed Mayowa', title: 'Defective product received', assignee: 'Unassigned', date: 'Yesterday', status: 'approved' },
+    { id: 'CM9805', customer: 'Akinride Kazeem', title: 'Account access issues', assignee: 'Machala', date: 'Feb 2, 2025', status: 'rejected' },
+    { id: 'CM9806', customer: 'Sarah Johnson', title: 'Payment processing error', assignee: 'Kemi Adeleke', date: 'Feb 1, 2025', status: 'in-progress' },
+    { id: 'CM9807', customer: 'Michael Chen', title: 'Website login problems', assignee: 'Ibrahim Musa', date: 'Jan 31, 2025', status: 'complete' },
+    { id: 'CM9808', customer: 'Fatima Al-Zahra', title: 'Order cancellation request', assignee: 'Grace Okonkwo', date: 'Jan 30, 2025', status: 'pending' },
+    { id: 'CM9809', customer: 'David Rodriguez', title: 'Product quality complaint', assignee: 'Unassigned', date: 'Jan 29, 2025', status: 'approved' },
+    { id: 'CM9810', customer: 'Lisa Thompson', title: 'Refund not processed', assignee: 'Machala', date: 'Jan 28, 2025', status: 'rejected' }
+  ];
+  const totalPages = Math.ceil((total || complaints.length) / pageSize);
 
   const getStatusText = (status) => {
     const statusMap = {

@@ -7,7 +7,7 @@ function renderHero() {
         <span class="highlight">Transparency</span>
       </h1>
       <p>Empower your team to track, manage, and resolve <br/> customer complaints with ease, all in one place.</p>
-      <button class="btn-gradient cta">Start New Complaint</button>
+      <a href="dashboard.html" class="btn-gradient cta" style="text-decoration: none;">Start New Complaint</a>
     </section>
   `;
 } 
