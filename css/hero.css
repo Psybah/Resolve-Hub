@@ -33,4 +33,214 @@
 .hero .btn-gradient.cta {
   font-size: 1.2em;
   padding: 1em 2.5em;
+  z-index: 2;
+}
+.dashboard-preview {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) translateY(30%);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+.dashboard-preview img {
+  max-width: 98vw;
+  width: 1200px;
+  border-radius: 1.5em 1.5em 0 0;
+  box-shadow: 0 8px 32px rgba(29, 78, 216, 0.15);
+  background: #10172a;
+  object-fit: cover;
+  object-position: top;
+  height: 60vh;
+  min-height: 340px;
+  pointer-events: none;
+}
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 6em;
+  }
+  .hero h1 {
+    font-size: 2em;
+  }
+  .hero p {
+    font-size: 1em;
+  }
+  .dashboard-preview img {
+    width: 90vw;
+    height: 38vh;
+    min-height: 180px;
+  }
+  .dashboard-preview {
+    transform: translateX(-50%) translateY(10%);
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 4em;
+  }
+  .hero h1 {
+    font-size: 1.3em;
+  }
+  .hero p {
+    font-size: 0.95em;
+  }
+  .dashboard-preview img {
+    width: 98vw;
+    height: 28vh;
+    min-height: 100px;
+  }
+  .dashboard-preview {
+    transform: translateX(-50%) translateY(0%);
+  }
+  .hero .btn-gradient.cta {
+    font-size: 1em;
+    padding: 0.7em 1.5em;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 2.5em;
+  }
+  .hero h1 {
+    font-size: 1em;
+    padding: 0 0.5em;
+  }
+  .hero p {
+    font-size: 0.85em;
+    padding: 0 0.5em;
+  }
+  .dashboard-preview img {
+    width: 100vw;
+    height: 18vh;
+    min-height: 60px;
+  }
+  .dashboard-preview {
+    transform: translateX(-50%) translateY(0%);
+  }
+  .hero .btn-gradient.cta {
+    font-size: 0.95em;
+    padding: 0.6em 1.2em;
+  }
+}
+/* Responsive header */
+@media (max-width: 1024px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2em 2vw 1em 2vw;
+    gap: 1em;
+  }
+  .main-header nav {
+    gap: 1.2em;
+  }
+  .header-actions {
+    gap: 0.7em;
+  }
+}
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7em 1vw 0.7em 1vw;
+    gap: 0.7em;
+  }
+  .main-header nav {
+    gap: 0.7em;
+    font-size: 0.95em;
+  }
+  .header-actions {
+    gap: 0.5em;
+  }
+  .main-header .logo {
+    height: 32px;
+  }
+}
+@media (max-width: 480px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5em 0.5vw 0.5em 0.5vw;
+    gap: 0.5em;
+  }
+  .main-header nav {
+    gap: 0.5em;
+    font-size: 0.9em;
+  }
+  .header-actions {
+    gap: 0.3em;
+  }
+  .main-header .logo {
+    height: 24px;
+  }
+}
+/* --- Responsive: Make dashboard preview smaller and landing page compact on mobile --- */
+@media (max-width: 1200px) {
+  .dashboard-preview img {
+    width: 70vw;
+    max-width: 600px;
+    height: 36vh;
+    min-height: 80px;
+  }
+  .dashboard-preview {
+    transform: translateX(-50%) translateY(8%);
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 4em;
+  }
+  .hero h1 {
+    font-size: 1.5em;
+  }
+  .dashboard-preview img {
+    width: 85vw;
+    max-width: 350px;
+    height: 18vh;
+    min-height: 40px;
+  }
+  .dashboard-preview {
+    transform: translateX(-50%) translateY(0%);
+  }
+  .hero .btn-gradient.cta {
+    font-size: 1em;
+    padding: 0.7em 1.5em;
+  }
+}
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7em 2vw 0.7em 2vw;
+    gap: 0.5em;
+  }
+  .main-header .logo {
+    height: 28px;
+  }
+  .hero {
+    padding-top: 2.2em;
+  }
+  .hero h1 {
+    font-size: 1em;
+    padding: 0 0.5em;
+  }
+  .hero p {
+    font-size: 0.85em;
+    padding: 0 0.5em;
+  }
+  .dashboard-preview img {
+    width: 97vw;
+    max-width: 200px;
+    height: 10vh;
+    min-height: 20px;
+  }
+  .dashboard-preview {
+    transform: translateX(-50%) translateY(0%);
+  }
+  .hero .btn-gradient.cta {
+    font-size: 0.95em;
+    padding: 0.6em 1.2em;
+  }
 } 
