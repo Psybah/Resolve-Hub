@@ -66,8 +66,8 @@ Customer-Complaint-Resolution/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/Customer-Complaint-Resolution.git
-   cd Customer-Complaint-Resolution
+   git clone https://github.com/psybah/Resolve-Hub.git
+   cd Resolve-Hub
    ```
 
 2. **Open `index.html` in your browser**  
@@ -90,11 +90,8 @@ Customer-Complaint-Resolution/
 - Dashboard preview and hero content scale smoothly for all device sizes.
 - No horizontal scrolling or overflow on mobile.
 
-## License
-
-This project is licensed under the MIT License.
 
 ---
 
 **Questions or feedback?**  
-Open an issue or contact the maintainer. 
+Open an issue.
