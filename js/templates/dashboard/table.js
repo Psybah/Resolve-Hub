@@ -133,13 +133,13 @@ function renderComplaintsTable({ data, page = 1, pageSize = 10, total = 0 } = {}
       </table>
       <div style="height: 2em;"></div>
       ${totalPages > 1 ? `
-        <div class="pagination">
-          <div class="page-number" data-page="prev">‹</div>
-          ${Array.from({ length: totalPages }, (_, i) => `
-            <div class="page-number${i + 1 === page ? ' active' : ''}" data-page="${i + 1}">${i + 1}</div>
-          `).join('')}
-          <div class="page-number" data-page="next">›</div>
-        </div>
+      <div class="pagination">
+        <div class="page-number" data-page="prev">‹</div>
+        ${Array.from({ length: totalPages }, (_, i) => `
+          <div class="page-number${i + 1 === page ? ' active' : ''}" data-page="${i + 1}">${i + 1}</div>
+        `).join('')}
+        <div class="page-number" data-page="next">›</div>
+      </div>
       ` : `<button class=\"btn-gradient\" style=\"margin: 0 auto 2em auto; display: block;\" onclick=\"window.location.href='tasks.html'\">View More</button>`}
     </div>
   `;
