@@ -23,14 +23,14 @@
   <script src="js/templates/processes/card.js"></script>
   <script>
     const demoProcesses = [
-      { id: 'CM9801', title: 'Delayed delivery of online order', assignee: 'Kemi Adeleke', status: 'in-progress', time: '32h' },
-      { id: 'CM9802', title: 'Delayed delivery of online order', assignee: 'Big Wiz', status: 'approved', time: '32h' },
-      { id: 'CM9803', title: 'Delayed delivery of online order', assignee: 'Oladolami Asake', status: 'rejected', time: '1w' },
-      { id: 'CM9804', title: 'Delayed delivery of online order', assignee: 'Osore Daniel', status: 'complete', time: '2h' },
-      { id: 'CM9805', title: 'Delayed delivery of online order', assignee: 'K1 De Ultimate', status: 'pending', time: '32h' },
-      { id: 'CM9806', title: 'Delayed delivery of online order', assignee: 'Sunny Ade', status: 'complete', time: '30min' },
-      { id: 'CM9807', title: 'Delayed delivery of online order', assignee: 'Pelumi Akin', status: 'pending', time: '3d' },
-      { id: 'CM9808', title: 'Delayed delivery of online order', assignee: 'Mufutau Umar', status: 'in-progress', time: 'Just now' }
+      { id: 'LC1001', title: 'Land Dispute Resolution', assignee: 'Kemi Adeleke', status: 'in-progress', time: '32h' },
+      { id: 'LC1002', title: 'Contract Breach', assignee: 'Ibrahim Musa', status: 'opened', time: '24h' },
+      { id: 'LC1003', title: 'Divorce Settlement', assignee: 'Grace Okonkwo', status: 'completed', time: '1w' },
+      { id: 'LC1004', title: 'Intellectual Property Dispute', assignee: 'Olamide Badoo', status: 'in-progress', time: '2d' },
+      { id: 'LC1005', title: 'Fraud Allegation', assignee: 'Chinedu Obi', status: 'opened', time: '3d' },
+      { id: 'LC1006', title: 'Property Inheritance', assignee: 'Mercy Johnson', status: 'completed', time: '30min' },
+      { id: 'LC1007', title: 'Employment Dispute', assignee: 'Fatima Al-Zahra', status: 'in-progress', time: '5d' },
+      { id: 'LC1008', title: 'Personal Injury Claim', assignee: 'Big Wiz', status: 'completed', time: 'Just now' }
     ];
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('app').innerHTML = `
@@ -42,11 +42,11 @@
               <div class="processes-header">
                 <div>
                   <h1>Process Instances</h1>
-                  <p>Track complaint resolution processes and workflows</p>
+                  <p>Track legal case processes and workflows</p>
                 </div>
                 <button class="btn-gradient" style="font-size: 1em; padding: 0.7em 2em;">Export Report</button>
               </div>
-              <div class="processes-grid">
+              <div class="processes-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em;">
                 ${demoProcesses.map(renderProcessCard).join('')}
               </div>
             </div>

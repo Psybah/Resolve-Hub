@@ -1,27 +1,21 @@
 function renderProcessCard(process) {
   const statusColors = {
     'in-progress': '#3B82F6',
-    'complete': '#10B981',
-    'pending': '#F59E0B',
-    'approved': '#F59E0B',
-    'rejected': '#EF4444'
+    'opened': '#F59E0B',
+    'completed': '#10B981'
   };
   const getAvatarUrl = (name) => `https://api.dicebear.com/7.x/micah/svg?seed=${encodeURIComponent(name)}`;
   const statusText = {
     'in-progress': 'In Progress',
-    'complete': 'Complete',
-    'pending': 'Pending',
-    'approved': 'Approved',
-    'rejected': 'Rejected'
+    'opened': 'Opened',
+    'completed': 'Completed'
   }[process.status] || process.status;
   const getMenuOptions = (status) => {
     switch (status) {
-      case 'in-progress': return ['Mark as Complete', 'Suspend', 'Reject'];
-      case 'pending': return ['Approve', 'Reject'];
-      case 'approved': return ['Reopen', 'Reject'];
-      case 'rejected': return ['Reopen'];
-      case 'complete': return ['Reopen'];
-      default: return [];
+      case 'in-progress': return ['Mark as Completed', 'View Details'];
+      case 'opened': return ['Start', 'Claim', 'View Details'];
+      case 'completed': return ['Reopen', 'View Details'];
+      default: return ['View Details'];
     }
   };
   return `

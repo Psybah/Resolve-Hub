@@ -14,13 +14,13 @@ function renderMetrics() {
     },
     {
       value: '2',
-      label: 'Suspended Complaints',
+      label: 'Suspended Tasks',
       trend: '-3%',
       trendType: 'down'
     },
     {
       value: '145',
-      label: 'Completed This Month',
+      label: 'Completed Tasks',
       trend: '+28%',
       trendType: 'up'
     }

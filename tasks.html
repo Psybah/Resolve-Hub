@@ -22,32 +22,30 @@
   <!-- Dashboard Table Template -->
   <script src="js/templates/dashboard/table.js"></script>
   <script>
-    // Generate lots of demo data
+    // Generate lots of demo data for legal case management
+    const legalCaseTitles = [
+      'Land Dispute Resolution', 'Contract Breach', 'Divorce Settlement', 'Intellectual Property Dispute',
+      'Fraud Allegation', 'Property Inheritance', 'Employment Dispute', 'Personal Injury Claim',
+      'Business Registration', 'Debt Recovery', 'Shareholder Dispute', 'Tax Appeal',
+      'Trademark Infringement', 'Environmental Violation', 'Bankruptcy Filing', 'Child Custody',
+      'Medical Malpractice', 'Consumer Protection', 'Real Estate Litigation', 'Insurance Claim'
+    ];
+    const legalAssignees = [
+      'Kemi Adeleke', 'Ibrahim Musa', 'Grace Okonkwo', 'Olamide Badoo', 'Chinedu Obi',
+      'Mercy Johnson', 'Fatima Al-Zahra', 'Big Wiz', 'Oladolami Asake', 'Machala'
+    ];
+    const legalStatuses = ['in-progress', 'opened', 'completed'];
+    function randomDate(start, end) {
+      const d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+      return d.toISOString().split('T')[0];
+    }
     const demoTasks = Array.from({ length: 57 }, (_, i) => ({
-      id: 'CM' + (9801 + i),
-      customer: [
-        'Adebayo Kayode', 'Leslie Young', 'Mufutau Umar', 'Ahmed Mayowa', 'Akinride Kazeem',
-        'Ojoketa Nifemi', 'Samuel Jackson', 'Michael Feranmi', 'Zazu zeh', 'Tunde Adeyemi',
-        'Sarah Johnson', 'Fatima Al-Zahra', 'David Rodriguez', 'Lisa Thompson', 'Grace Okonkwo',
-        'Mercy Johnson', 'Chinedu Obi', 'Olamide Badoo', 'Oladolami Asake', 'Big Wiz', 'Machala'
-      ][i % 20],
-      title: [
-        'Delayed delivery of online order', 'Incorrect billing charges', 'Poor customer service',
-        'Defective product received', 'Account access issues', 'Rider delivered defected product',
-        'Not refunded', 'Wrong size of clothing', 'Misplaced orders', 'Robbed and disrespected by staff',
-        'Payment processing error', 'Order cancellation request', 'Product quality complaint',
-        'Refund not processed', 'Website login problems', 'Order not delivered', 'Late response',
-        'Unhelpful support', 'Damaged item', 'Unassigned'
-      ][i % 20],
-      assignee: [
-        'Kemi Adeleke', 'Ibrahim Musa', 'Grace Okonkwo', 'Unassigned', 'Machala', 'Chinedu Obi',
-        'Olamide Badoo', 'Oladolami Asake', 'Mercy Johnson', 'Big Wiz'
-      ][i % 10],
-      date: [
-        'Just now', 'A minute ago', '1 hour ago', 'Yesterday', 'Feb 2, 2025', 'Feb 1, 2025',
-        'Jan 31, 2025', 'Jan 30, 2025', 'Jan 29, 2025', 'Jan 28, 2025'
-      ][i % 10],
-      status: ['in-progress', 'complete', 'pending', 'approved', 'rejected'][i % 5]
+      id: 'LC' + (1001 + i),
+      title: legalCaseTitles[i % legalCaseTitles.length],
+      startDate: randomDate(new Date(2024, 0, 1), new Date(2024, 5, 1)),
+      dueDate: randomDate(new Date(2024, 5, 2), new Date(2024, 11, 31)),
+      assignee: legalAssignees[i % legalAssignees.length],
+      status: legalStatuses[i % legalStatuses.length]
     }));
     const PAGE_SIZE = 10;
     let currentPage = 1;
@@ -65,7 +63,7 @@
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5em;">
                 <div>
                   <h1 style="font-size: 2em; font-weight: 600; margin: 0 0 0.5em 0;">Tasks Management</h1>
-                  <p style="font-size: 1.1em; color: rgba(255,255,255,0.7); margin: 0;">Monitor and manage all complaint resolution tasks</p>
+                  <p style="font-size: 1.1em; color: rgba(255,255,255,0.7); margin: 0;">Monitor and manage all legal case tasks</p>
                 </div>
                 <button class="btn-gradient" style="font-size: 1em; padding: 0.7em 2em;">Schedule Task</button>
               </div>
