@@ -10,14 +10,6 @@ function renderProcessCard(process) {
     'opened': 'Opened',
     'completed': 'Completed'
   }[process.status] || process.status;
-  const getMenuOptions = (status) => {
-    switch (status) {
-      case 'in-progress': return ['Mark as Completed', 'View Details'];
-      case 'opened': return ['Start', 'Claim', 'View Details'];
-      case 'completed': return ['Reopen', 'View Details'];
-      default: return ['View Details'];
-    }
-  };
   return `
     <div class="process-card">
       <div class="process-card-header">
@@ -34,13 +26,10 @@ function renderProcessCard(process) {
         </div>
         <div class="process-time">Time: ${process.time}</div>
       </div>
-      <div class="process-card-menu">
-        <div class="process-action-menu-trigger" data-processid="${process.id}">
-          <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: #888; cursor: pointer;"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
-        </div>
-        <div class="process-action-menu" id="process-action-menu-${process.id}" style="display:none;">
-          ${getMenuOptions(process.status).map(option => `<div class="process-action-menu-item" data-action="${option}" data-processid="${process.id}">${option}</div>`).join('')}
-        </div>
+      <div class="process-card-eye">
+        <span class="process-eye-icon" data-processid="${process.id}" style="cursor:pointer;display:inline-flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#888"><path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>
+        </span>
       </div>
     </div>
   `;
