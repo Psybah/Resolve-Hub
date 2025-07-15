@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tasks - ResolveHub</title>
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/buttons.css"/>
+  <link rel="stylesheet" href="css/dashboard/layout.css"/>
+  <link rel="stylesheet" href="css/dashboard/sidebar.css"/>
+  <link rel="stylesheet" href="css/dashboard/header.css"/>
+  <link rel="stylesheet" href="css/dashboard/table.css"/>
+  <link rel="icon" href="assets/logo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app"></div>
+  <!-- Shared Templates -->
+  <script src="js/templates/shared/sidebar.js"></script>
+  <script src="js/templates/shared/header.js"></script>
+  <!-- Dashboard Table Template -->
+  <script src="js/templates/dashboard/table.js"></script>
+  <script>
+    // Generate lots of demo data
+    const demoTasks = Array.from({ length: 57 }, (_, i) => ({
+      id: 'CM' + (9801 + i),
+      customer: [
+        'Adebayo Kayode', 'Leslie Young', 'Mufutau Umar', 'Ahmed Mayowa', 'Akinride Kazeem',
+        'Ojoketa Nifemi', 'Samuel Jackson', 'Michael Feranmi', 'Zazu zeh', 'Tunde Adeyemi',
+        'Sarah Johnson', 'Fatima Al-Zahra', 'David Rodriguez', 'Lisa Thompson', 'Grace Okonkwo',
+        'Mercy Johnson', 'Chinedu Obi', 'Olamide Badoo', 'Oladolami Asake', 'Big Wiz', 'Machala'
+      ][i % 20],
+      title: [
+        'Delayed delivery of online order', 'Incorrect billing charges', 'Poor customer service',
+        'Defective product received', 'Account access issues', 'Rider delivered defected product',
+        'Not refunded', 'Wrong size of clothing', 'Misplaced orders', 'Robbed and disrespected by staff',
+        'Payment processing error', 'Order cancellation request', 'Product quality complaint',
+        'Refund not processed', 'Website login problems', 'Order not delivered', 'Late response',
+        'Unhelpful support', 'Damaged item', 'Unassigned'
+      ][i % 20],
+      assignee: [
+        'Kemi Adeleke', 'Ibrahim Musa', 'Grace Okonkwo', 'Unassigned', 'Machala', 'Chinedu Obi',
+        'Olamide Badoo', 'Oladolami Asake', 'Mercy Johnson', 'Big Wiz'
+      ][i % 10],
+      date: [
+        'Just now', 'A minute ago', '1 hour ago', 'Yesterday', 'Feb 2, 2025', 'Feb 1, 2025',
+        'Jan 31, 2025', 'Jan 30, 2025', 'Jan 29, 2025', 'Jan 28, 2025'
+      ][i % 10],
+      status: ['in-progress', 'complete', 'pending', 'approved', 'rejected'][i % 5]
+    }));
+    const PAGE_SIZE = 10;
+    let currentPage = 1;
+    function renderTasksPage(page = 1) {
+      currentPage = page;
+      const start = (page - 1) * PAGE_SIZE;
+      const end = start + PAGE_SIZE;
+      const pageData = demoTasks.slice(start, end);
+      document.getElementById('app').innerHTML = `
+        <div class="dashboard-layout">
+          ${renderSidebar('tasks')}
+          <div class="dashboard-main">
+            ${renderDashboardHeader ? renderDashboardHeader() : ''}
+            <div class="dashboard-content">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5em;">
+                <div>
+                  <h1 style="font-size: 2em; font-weight: 600; margin: 0 0 0.5em 0;">Tasks Management</h1>
+                  <p style="font-size: 1.1em; color: rgba(255,255,255,0.7); margin: 0;">Monitor and manage all complaint resolution tasks</p>
+                </div>
+                <button class="btn-gradient" style="font-size: 1em; padding: 0.7em 2em;">Schedule Task</button>
+              </div>
+              ${renderComplaintsTable({ data: pageData, page, pageSize: PAGE_SIZE, total: demoTasks.length })}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      renderTasksPage(1);
+      document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('page-number')) {
+          let page = e.target.getAttribute('data-page');
+          if (page === 'prev') page = Math.max(1, currentPage - 1);
+          else if (page === 'next') page = Math.min(Math.ceil(demoTasks.length / PAGE_SIZE), currentPage + 1);
+          else page = parseInt(page, 10);
+          if (page !== currentPage) renderTasksPage(page);
+        }
+      });
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html> 

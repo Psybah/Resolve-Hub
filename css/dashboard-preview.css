@@ -1,0 +1,23 @@
+.dashboard-preview {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) translateY(30%);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+.dashboard-preview img {
+  max-width: 98vw;
+  width: 1200px;
+  border-radius: 1.5em 1.5em 0 0;
+  box-shadow: 0 8px 32px rgba(29, 78, 216, 0.15);
+  background: #10172a;
+  object-fit: cover;
+  object-position: top;
+  height: 60vh;
+  min-height: 340px;
+  pointer-events: none;
+} 

@@ -1,0 +1,212 @@
+.table-container {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75em;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.control-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.control-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--text-main);
+}
+
+.table-search {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5em;
+  padding: 0.4em 0.8em;
+  width: 220px;
+}
+
+.table-search svg {
+  width: 14px;
+  height: 14px;
+  fill: rgba(255, 255, 255, 0.5);
+  margin-right: 0.5em;
+}
+
+.table-search input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  font-size: 0.85em;
+  width: 100%;
+  outline: none;
+}
+
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.complaints-table th {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.75em;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.complaints-table td {
+  padding: 0.75em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.85em;
+}
+
+.complaints-table tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.customer-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--card-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75em;
+  color: var(--text-main);
+}
+
+.customer-avatar-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 0.6em;
+  background: #e5e7eb;
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.action-menu {
+  position: absolute;
+  top: 2em;
+  right: 0;
+  min-width: 140px;
+  background: #181f2a;
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 0.5em;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 100;
+  display: none;
+}
+
+.action-menu-item {
+  padding: 0.7em 1.2em;
+  font-size: 0.95em;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.action-menu-item:hover {
+  background: rgba(59,130,246,0.08);
+  color: var(--primary-light);
+}
+
+.action-menu-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-in-progress .status-dot { background: #3B82F6; }
+.status-in-progress { color: #3B82F6; }
+.status-complete .status-dot { background: #10B981; }
+.status-complete { color: #10B981; }
+.status-pending .status-dot { background: #F59E0B; }
+.status-pending { color: #F59E0B; }
+.status-approved .status-dot { background: #F59E0B; }
+.status-approved { color: #F59E0B; }
+.status-rejected .status-dot { background: #EF4444; }
+.status-rejected { color: #EF4444; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  padding: 1.25em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-number {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  font-size: 0.85em;
+}
+
+.page-number:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.page-number.active {
+  background: var(--card-blue);
+  color: var(--text-main);
+} 

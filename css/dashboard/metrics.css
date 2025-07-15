@@ -1,0 +1,62 @@
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+.metric-card {
+  background: var(--card-blue);
+  border-radius: 0.75em;
+  padding: 1.25em;
+  color: var(--text-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(15px, -15px);
+}
+
+.metric-value {
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 0.25em;
+}
+
+.metric-label {
+  font-size: 0.9em;
+  font-weight: 300;
+  margin-bottom: 0.75em;
+  opacity: 0.9;
+}
+
+.metric-trend {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.trend-up {
+  color: #10B981;
+}
+
+.trend-down {
+  color: #EF4444;
+}
+
+.trend-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+} 

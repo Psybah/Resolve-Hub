@@ -1,0 +1,108 @@
+.dashboard-header {
+  height: 60px;
+  background: var(--bg-dashboard);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5em;
+}
+
+.sidebar-toggle {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 1em;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-main);
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5em;
+  padding: 0.4em 0.8em;
+  width: 250px;
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.header-search svg {
+  width: 14px;
+  height: 14px;
+  fill: rgba(255, 255, 255, 0.5);
+  margin-right: 0.5em;
+}
+
+.header-search input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  font-size: 0.85em;
+  width: 100%;
+  outline: none;
+}
+
+.header-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.header-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.header-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--text-main);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: 0.9em;
+} 

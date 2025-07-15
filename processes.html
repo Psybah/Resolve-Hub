@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Process Instances - ResolveHub</title>
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/buttons.css"/>
+  <link rel="stylesheet" href="css/dashboard/layout.css"/>
+  <link rel="stylesheet" href="css/dashboard/sidebar.css"/>
+  <link rel="stylesheet" href="css/dashboard/header.css"/>
+  <link rel="stylesheet" href="css/dashboard/metrics.css"/>
+  <link rel="stylesheet" href="css/dashboard/table.css"/>
+  <link rel="icon" href="assets/logo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app"></div>
+  
+  <!-- Shared Templates -->
+  <script src="js/templates/shared/sidebar.js"></script>
+  <script src="js/templates/shared/header.js"></script>
+  
+  <!-- Dashboard Templates -->
+  <script src="js/templates/dashboard/metrics.js"></script>
+  <script src="js/templates/dashboard/table.js"></script>
+  
+  <!-- Main Processes Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <div class="dashboard-layout">
+          ${renderSidebar('processes')}
+          <div class="dashboard-main">
+            ${renderDashboardHeader()}
+            <div class="dashboard-content">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5em;">
+                <div>
+                  <h1 style="font-size: 2em; font-weight: 500; margin: 0 0 0.25em 0;">Process Instances</h1>
+                  <p style="font-size: 1em; color: rgba(255,255,255,0.7); margin: 0;">Monitor and manage workflow processes</p>
+                </div>
+                <button class="btn-gradient" style="font-size: 0.9em; padding: 0.6em 1.5em;">Start New Process</button>
+              </div>
+              ${renderMetrics()}
+              ${renderComplaintsTable()}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html> 
