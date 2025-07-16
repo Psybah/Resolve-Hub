@@ -1,16 +1,16 @@
 function renderComplaintsTable({ data, page = 1, pageSize = 10, total = 0 } = {}) {
-  // Demo data for legal case management
+  // Demo data for Process Management
   const cases = data || [
-    { id: 'LC1001', title: 'Land Dispute Resolution', startDate: '2024-05-01', dueDate: '2024-06-01', assignee: 'Kemi Adeleke', status: 'in-progress' },
-    { id: 'LC1002', title: 'Contract Breach', startDate: '2024-04-15', dueDate: '2024-05-20', assignee: 'Ibrahim Musa', status: 'opened' },
-    { id: 'LC1003', title: 'Divorce Settlement', startDate: '2024-03-10', dueDate: '2024-04-10', assignee: 'Grace Okonkwo', status: 'completed' },
-    { id: 'LC1004', title: 'Intellectual Property Dispute', startDate: '2024-05-10', dueDate: '2024-07-01', assignee: 'Olamide Badoo', status: 'in-progress' },
-    { id: 'LC1005', title: 'Fraud Allegation', startDate: '2024-04-01', dueDate: '2024-05-15', assignee: 'Chinedu Obi', status: 'opened' },
-    { id: 'LC1006', title: 'Property Inheritance', startDate: '2024-02-20', dueDate: '2024-03-20', assignee: 'Mercy Johnson', status: 'completed' },
-    { id: 'LC1007', title: 'Employment Dispute', startDate: '2024-05-05', dueDate: '2024-06-10', assignee: 'Fatima Al-Zahra', status: 'in-progress' },
-    { id: 'LC1008', title: 'Personal Injury Claim', startDate: '2024-03-15', dueDate: '2024-04-15', assignee: 'Big Wiz', status: 'completed' },
-    { id: 'LC1009', title: 'Business Registration', startDate: '2024-04-10', dueDate: '2024-05-10', assignee: 'Oladolami Asake', status: 'opened' },
-    { id: 'LC1010', title: 'Debt Recovery', startDate: '2024-05-12', dueDate: '2024-06-12', assignee: 'Machala', status: 'in-progress' }
+    { id: 'TSK1001', title: 'Onboard New Employee', startDate: '2024-05-01', dueDate: '2024-06-01', assignee: 'Kemi Adeleke', status: 'in-progress' },
+    { id: 'TSK1002', title: 'Prepare Project Plan', startDate: '2024-04-15', dueDate: '2024-05-20', assignee: 'Ibrahim Musa', status: 'opened' },
+    { id: 'TSK1003', title: 'Conduct Team Meeting', startDate: '2024-03-10', dueDate: '2024-04-10', assignee: 'Grace Okonkwo', status: 'completed' },
+    { id: 'TSK1004', title: 'Update Documentation', startDate: '2024-05-10', dueDate: '2024-07-01', assignee: 'Olamide Badoo', status: 'in-progress' },
+    { id: 'TSK1005', title: 'Review Budget', startDate: '2024-04-01', dueDate: '2024-05-15', assignee: 'Chinedu Obi', status: 'opened' },
+    { id: 'TSK1006', title: 'Deploy Application', startDate: '2024-02-20', dueDate: '2024-03-20', assignee: 'Mercy Johnson', status: 'completed' },
+    { id: 'TSK1007', title: 'Client Feedback Session', startDate: '2024-05-05', dueDate: '2024-06-10', assignee: 'Fatima Al-Zahra', status: 'in-progress' },
+    { id: 'TSK1008', title: 'System Maintenance', startDate: '2024-03-15', dueDate: '2024-04-15', assignee: 'Big Wiz', status: 'completed' },
+    { id: 'TSK1009', title: 'Design Mockups', startDate: '2024-04-10', dueDate: '2024-05-10', assignee: 'Oladolami Asake', status: 'opened' },
+    { id: 'TSK1010', title: 'Data Backup', startDate: '2024-05-12', dueDate: '2024-06-12', assignee: 'Machala', status: 'in-progress' }
   ];
 
   const getStatusText = (status) => {
@@ -87,9 +87,8 @@ function renderComplaintsTable({ data, page = 1, pageSize = 10, total = 0 } = {}
       <table class="complaints-table" style="margin: 0 auto;">
         <thead>
           <tr>
-            <th><input type="checkbox" /></th>
-            <th>Case ID</th>
-            <th>Case Title</th>
+            <th>Task ID</th>
+            <th>Task Title</th>
             <th>Start Date</th>
             <th>Due Date</th>
             <th>Assignee</th>
@@ -100,8 +99,7 @@ function renderComplaintsTable({ data, page = 1, pageSize = 10, total = 0 } = {}
         <tbody>
           ${cases.map((c, index) => `
             <tr>
-              <td><input type="checkbox" /></td>
-              <td>#${c.id}</td>
+              <td>${c.id}</td>
               <td>${c.title}</td>
               <td>${c.startDate}</td>
               <td>${c.dueDate}</td>

@@ -9,8 +9,8 @@ function renderSidebar(activePage = 'dashboard') {
   return `
     <div class="dashboard-sidebar">
       <a href="index.html" class="sidebar-logo">
-        <img src="assets/logo.png" alt="ResolveHub Logo" class="sidebar-logo-full" />
-        <img src="assets/logo-tab.png" alt="ResolveHub Tab Logo" class="sidebar-logo-tab" />
+        <img src="assets/logo.png" alt="Taskify Logo" class="sidebar-logo-full" />
+        <img src="assets/logo-tab.png" alt="Taskify Tab Logo" class="sidebar-logo-tab" />
       </a>
       <nav class="sidebar-nav">
         ${navItems.map(item => `

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tasks - ResolveHub</title>
+  <title>Tasks - Taskify</title>
   <link rel="stylesheet" href="css/variables.css"/>
   <link rel="stylesheet" href="css/main.css"/>
   <link rel="stylesheet" href="css/buttons.css"/>
@@ -22,30 +22,30 @@
   <!-- Dashboard Table Template -->
   <script src="js/templates/dashboard/table.js"></script>
   <script>
-    // Generate lots of demo data for legal case management
-    const legalCaseTitles = [
-      'Land Dispute Resolution', 'Contract Breach', 'Divorce Settlement', 'Intellectual Property Dispute',
-      'Fraud Allegation', 'Property Inheritance', 'Employment Dispute', 'Personal Injury Claim',
-      'Business Registration', 'Debt Recovery', 'Shareholder Dispute', 'Tax Appeal',
-      'Trademark Infringement', 'Environmental Violation', 'Bankruptcy Filing', 'Child Custody',
-      'Medical Malpractice', 'Consumer Protection', 'Real Estate Litigation', 'Insurance Claim'
+    // Demo data for Process Management
+    const processTaskTitles = [
+      'Onboard New Employee', 'Prepare Project Plan', 'Conduct Team Meeting', 'Update Documentation',
+      'Review Budget', 'Deploy Application', 'Client Feedback Session', 'System Maintenance',
+      'Design Mockups', 'Data Backup', 'Sprint Planning', 'Release Review',
+      'User Training', 'Performance Review', 'Resource Allocation', 'Vendor Meeting',
+      'Compliance Check', 'Feature Rollout', 'Incident Response', 'Quarterly Audit'
     ];
-    const legalAssignees = [
+    const processAssignees = [
       'Kemi Adeleke', 'Ibrahim Musa', 'Grace Okonkwo', 'Olamide Badoo', 'Chinedu Obi',
       'Mercy Johnson', 'Fatima Al-Zahra', 'Big Wiz', 'Oladolami Asake', 'Machala'
     ];
-    const legalStatuses = ['in-progress', 'opened', 'completed'];
+    const processStatuses = ['in-progress', 'opened', 'completed'];
     function randomDate(start, end) {
       const d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
       return d.toISOString().split('T')[0];
     }
     const demoTasks = Array.from({ length: 57 }, (_, i) => ({
-      id: 'LC' + (1001 + i),
-      title: legalCaseTitles[i % legalCaseTitles.length],
+      id: 'TSK' + (1001 + i),
+      title: processTaskTitles[i % processTaskTitles.length],
       startDate: randomDate(new Date(2024, 0, 1), new Date(2024, 5, 1)),
       dueDate: randomDate(new Date(2024, 5, 2), new Date(2024, 11, 31)),
-      assignee: legalAssignees[i % legalAssignees.length],
-      status: legalStatuses[i % legalStatuses.length]
+      assignee: processAssignees[i % processAssignees.length],
+      status: processStatuses[i % processStatuses.length]
     }));
     const PAGE_SIZE = 10;
     let currentPage = 1;
@@ -63,7 +63,7 @@
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5em;">
                 <div>
                   <h1 style="font-size: 2em; font-weight: 600; margin: 0 0 0.5em 0;">Tasks Management</h1>
-                  <p style="font-size: 1.1em; color: rgba(255,255,255,0.7); margin: 0;">Monitor and manage all legal case tasks</p>
+                  <p style="font-size: 1.1em; color: rgba(255,255,255,0.7); margin: 0;">Monitor and manage all your process tasks</p>
                 </div>
                 <button class="btn-gradient" style="font-size: 1em; padding: 0.7em 2em;">Schedule Task</button>
               </div>

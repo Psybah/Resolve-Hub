@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Process Instances - LexFlow</title>
+  <title>Process Instances - Taskify</title>
   <link rel="stylesheet" href="css/variables.css"/>
   <link rel="stylesheet" href="css/main.css"/>
   <link rel="stylesheet" href="css/buttons.css"/>
@@ -16,22 +16,31 @@
 </head>
 <body>
   <div id="app"></div>
+  <div id="process-timeline-modal" class="modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(10,17,33,0.85);z-index:1000;align-items:center;justify-content:center;"></div>
   <!-- Shared Templates -->
   <script src="js/templates/shared/sidebar.js"></script>
   <script src="js/templates/shared/header.js"></script>
+  <script src="js/templates/shared/processTimelineModal.js"></script>
   <!-- Processes Card Template -->
   <script src="js/templates/processes/card.js"></script>
   <script>
-    const demoProcesses = [
-      { id: 'LC1001', title: 'Land Dispute Resolution', assignee: 'Kemi Adeleke', status: 'in-progress', time: '32h' },
-      { id: 'LC1002', title: 'Contract Breach', assignee: 'Ibrahim Musa', status: 'opened', time: '24h' },
-      { id: 'LC1003', title: 'Divorce Settlement', assignee: 'Grace Okonkwo', status: 'completed', time: '1w' },
-      { id: 'LC1004', title: 'Intellectual Property Dispute', assignee: 'Olamide Badoo', status: 'in-progress', time: '2d' },
-      { id: 'LC1005', title: 'Fraud Allegation', assignee: 'Chinedu Obi', status: 'opened', time: '3d' },
-      { id: 'LC1006', title: 'Property Inheritance', assignee: 'Mercy Johnson', status: 'completed', time: '30min' },
-      { id: 'LC1007', title: 'Employment Dispute', assignee: 'Fatima Al-Zahra', status: 'in-progress', time: '5d' },
-      { id: 'LC1008', title: 'Personal Injury Claim', assignee: 'Big Wiz', status: 'completed', time: 'Just now' }
+    const processTaskTitles = [
+      'Onboard New Employee', 'Prepare Project Plan', 'Conduct Team Meeting', 'Update Documentation',
+      'Review Budget', 'Deploy Application', 'Client Feedback Session', 'System Maintenance'
     ];
+    const processAssignees = [
+      'Kemi Adeleke', 'Ibrahim Musa', 'Grace Okonkwo', 'Olamide Badoo', 'Chinedu Obi',
+      'Mercy Johnson', 'Fatima Al-Zahra', 'Big Wiz', 'Oladolami Asake', 'Machala'
+    ];
+    const processStatuses = ['in-progress', 'opened', 'completed'];
+    const processTimes = ['32h', '24h', '1w', '2d', '3d', '30min', '5d', 'Just now'];
+    const demoProcesses = Array.from({ length: 8 }, (_, i) => ({
+      id: 'TSK' + (1001 + i),
+      title: processTaskTitles[i % processTaskTitles.length],
+      assignee: processAssignees[i % processAssignees.length],
+      status: processStatuses[i % processStatuses.length],
+      time: processTimes[i % processTimes.length]
+    }));
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('app').innerHTML = `
         <div class="dashboard-layout">
@@ -42,7 +51,7 @@
               <div class="processes-header">
                 <div>
                   <h1>Process Instances</h1>
-                  <p>Track legal case processes and workflows</p>
+                  <p>Track and manage your process instances and workflows</p>
                 </div>
                 <button class="btn-gradient" style="font-size: 1em; padding: 0.7em 2em;">Export Report</button>
               </div>
@@ -54,6 +63,21 @@
         </div>
       `;
     });
+  </script>
+  <script>
+    function showProcessTimelineModal(processId) {
+      // Find the process data from the current demoProcesses array
+      const process = (typeof demoProcesses !== 'undefined' && Array.isArray(demoProcesses))
+        ? demoProcesses.find(p => p.id === processId)
+        : null;
+      if (!process) return;
+      document.getElementById('process-timeline-modal').innerHTML = window.renderProcessTimelineModal(process);
+      document.getElementById('process-timeline-modal').style.display = 'flex';
+    }
+    function closeProcessTimelineModal() {
+      document.getElementById('process-timeline-modal').style.display = 'none';
+      document.getElementById('process-timeline-modal').innerHTML = '';
+    }
   </script>
   <script src="js/main.js"></script>
 </body>

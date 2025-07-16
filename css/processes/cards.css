@@ -135,4 +135,9 @@
   justify-content: center;
   cursor: pointer;
   height: 100%;
+}
+.process-card-eye {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 } 

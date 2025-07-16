@@ -31,15 +31,17 @@ function renderMetrics() {
       ${metrics.map(metric => `
         <div class="metric-card">
           <div class="metric-value">${metric.value}</div>
-          <div class="metric-label">${metric.label}</div>
-          <div class="metric-trend ${metric.trendType === 'up' ? 'trend-up' : 'trend-down'}">
-            <svg class="trend-icon" viewBox="0 0 24 24">
-              ${metric.trendType === 'up' 
-                ? '<path d="M7 14l5-5 5 5z"/>'
-                : '<path d="M7 10l5 5 5-5z"/>'
-              }
-            </svg>
-            ${metric.trend}
+          <div class="metric-label-trend">
+            <div class="metric-label">${metric.label}</div>
+            <div class="metric-trend ${metric.trendType === 'up' ? 'trend-up' : 'trend-down'}">
+              <svg class="trend-icon" viewBox="0 0 24 24">
+                ${metric.trendType === 'up' 
+                  ? '<path d="M7 14l5-5 5 5z"/>'
+                  : '<path d="M7 10l5 5 5-5z"/>'
+                }
+              </svg>
+              ${metric.trend}
+            </div>
           </div>
         </div>
       `).join('')}

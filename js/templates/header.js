@@ -1,7 +1,7 @@
 function renderHeader() {
   return `
     <header class="main-header">
-      <img src="assets/logo.png" alt="ResolveHub Logo" class="logo"/>
+      <img src="assets/logo.png" alt="Taskify Logo" class="logo"/>
       <nav>
         <a href="dashboard.html">Dashboard</a>
         <a href="tasks.html">Tasks</a>
